@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.44",
+    "@types/mongoose": "^5.11.97",
+    "chunk-array": "^1.0.2",
+    "discord.js": "^14.13.0",
+    "fs": "^0.0.1-security",
+    "humanize-duration": "^3.30.0",
+    "mongoose": "^8.0.0"
+  }
+}
