@@ -16,7 +16,6 @@ module.exports = {
 	 * @param {ChatInputCommandInteraction} interaction 
 	 */
 	run: async (interaction) => {
-		await interaction.deferReply();
 
 		const embed = new EmbedBuilder()
 			.setColor(config.theme)
@@ -28,12 +27,14 @@ module.exports = {
 			embed
 				.setTitle("This command is on cooldown!")
 				.setDescription(`**Total cooldown:** \`${config.cooldowns.drop / 60000}\` minutes\n**Time remaining:** ${humanize(cooldown - Date.now(), { delimiter: " and ", round: true }).replace(/\d+/g, n => `\`${n}\``)}`);
-			return interaction.followUp({ embeds: [embed], ephemeral: true });
+			return interaction.reply({ embeds: [embed], ephemeral: true });
 		}
 		mongoUser.setCooldown("drop", config.cooldowns.drop);
 
+		await interaction.deferReply();
+
 		const mongo = new MongoCard();
-		const cards = await mongo.model.aggregate([{ $sample: { size: 3 } }]);
+		const cards = await mongo.getCards(3);
 
 		const component = new ActionRowBuilder().setComponents(
 			new ButtonBuilder().setCustomId(cards[0].id).setEmoji("1153061555232055377").setStyle(ButtonStyle.Secondary),

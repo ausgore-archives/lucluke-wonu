@@ -1,6 +1,6 @@
 module.exports = {
 	theme: "#9966cc",
-	token: "MTE3MTc5MzM4NDkxOTI3NzYxOA.GCWy4Z.QXuPH48qJVRXkJAuX4qtdHpBIyWbY11p0bIIGM",
+	token: "MTE3MTc5MzM4NDkxOTI3NzYxOA.GYmAag.hRxMpeFepx_TE6Kuo61sTm0HrjFRWxVHkvSZjU",
 	connection: "mongodb+srv://glenn:glnn3444@database.nyy8c.mongodb.net/",
 	tiers: [
 		{ name: "Common", emoji: "<:common:1150542813004566659>" },
@@ -15,9 +15,7 @@ module.exports = {
 		{ name: "Birthday", emoji: "" }
 	],
 	cooldowns: {
-		// drop: 600_000,
-		drop: 1_000,
-		// claim: 300_000
-		claim: 1_000
+		drop: 600_000,
+		claim: 300_000,
 	}
 }

@@ -1,6 +1,7 @@
 const { SlashCommandBuilder, PermissionFlagsBits, ChatInputCommandInteraction, EmbedBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder, AutocompleteInteraction } = require("discord.js");
 const config = require("../config");
 const MongoCard = require("../database/MongoCard");
+const MongoInventory = require("../database/MongoInventory");
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -84,7 +85,7 @@ module.exports = {
 		}
 		if (command == "delete") {
 			const id = interaction.options.getString("id");
-			const card = await mongo.delete(id);
+			const card = await mongo.delete(id, new MongoInventory());
 			if (!card) return interaction.reply({ embeds: [embed.setDescription("There is no card with that ID.")], ephemeral: true });
 			return interaction.reply({ embeds: [embed.setDescription(`**${id}** has been successfully deleted from the database.`)] });
 		}

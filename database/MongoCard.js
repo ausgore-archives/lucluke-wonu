@@ -42,6 +42,13 @@ module.exports = class MongoCard {
 	}
 
 	/**
+	 * @param {number} quantity Default is 1
+	 */
+	getCards(quantity = 1) {
+		return model.aggregate([{ $sample: { size: quantity } }])
+	}
+
+	/**
 	 * @param {string} id 
 	 * @param {Card} card 
 	 */
