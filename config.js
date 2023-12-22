@@ -1,7 +1,7 @@
 module.exports = {
 	theme: "#9966cc",
-	token: "MTE3MTc5MzM4NDkxOTI3NzYxOA.GYmAag.hRxMpeFepx_TE6Kuo61sTm0HrjFRWxVHkvSZjU",
-	connection: "mongodb+srv://glenn:glnn3444@database.nyy8c.mongodb.net/",
+	token: "",
+	connection: "",
 	tiers: [
 		{ name: "Common", emoji: "<:common:1150542813004566659>" },
 		{ name: "Uncommon", emoji: "<:uncommon:1150542862790959104>" },
